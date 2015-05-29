@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="djps.br.com.cameramail" android:versionCode="1"
+	android:versionName="1.0" android:screenOrientation="landscape">
+
+	<uses-sdk android:minSdkVersion="7" />
+	<uses-feature android:name="android.hardware.camera" />
+	<uses-permission android:name="android.permission.CAMERA"></uses-permission>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+	<uses-permission android:name="android.permission.WAKE_LOCK"></uses-permission>
+
+	<!-- Uso de temas ver documentacao android para classe R.style filtrar pela 
+		versao do SDK em uso. Substituir o "_" por "." -->
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+	<application android:icon="@drawable/camera" android:label="@string/app_name">
+		<activity android:theme="@android:style/Theme.Black"
+			android:name="djps.br.com.cameramail.CameraMailActivity"
+			android:label="@string/app_name" android:screenOrientation="landscape">
+			<intent-filter>
+				<!-- Essa tag atrapalhou o uso das acoes nas outras activitys -->
+				<!-- action android:name="CAMERA_MAIL_INICIO"/ -->
+				<!-- Pode ser chamado e executado sem depender de outra activity -->
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:name="djps.br.com.cameramail.ListaContatosActivity"
+			android:theme="@android:style/Theme.Dialog">
+			<intent-filter>
+				<action android:name="CAMERA_MAIL_CONTATOS" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:name="djps.br.com.cameramail.CadastroContatosActivity"
+			android:theme="@android:style/Theme.WallpaperSettings">
+			<intent-filter>
+				<action android:name="CAMERA_MAIL_CAD_CONTATOS" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<!-- android:configChanges="orientation" Faz bypass no restart da activity 
+			na mudanca de orientacao -->
+		<activity android:name="djps.br.com.cameramail.ExibirFotosActivity"
+			android:configChanges="orientation" android:theme="@android:style/Theme.Black.NoTitleBar">
+			<intent-filter>
+				<action android:name="CAMERA_MAIL_FOTOS" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:name="djps.br.com.cameramail.GaleriaActivity"
+			android:configChanges="orientation" android:theme="@android:style/Theme.Light.NoTitleBar">
+			<intent-filter>
+				<action android:name="CAMERA_MAIL_GALERIA" />
+				<!-- Pode ser chamado e executado sem depender de outra activity -->
+				<category android:name="android.intent.category.DEFAULT" />
+				<action android:name="android.intent.action.MAIN" />
+			</intent-filter>
+		</activity>
+		<activity android:name="djps.br.com.video.CameraVideoActivity"
+			android:screenOrientation="landscape" android:configChanges="keyboard|orientation">
+		</activity>
+		<activity android:name="djps.br.com.video.VideoPlayActivity"
+			android:screenOrientation="landscape" android:configChanges="keyboard|orientation">
+		</activity>
+		<activity android:name="PrincipalActivity"
+			android:screenOrientation="landscape">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<!-- E a aplicacao do topo e pode ser chamada pelo usuario no celular -->
+				<category android:name="android.intent.category.LAUNCHER" />
+				<action android:name="android.intent.action.CAMERA_BUTTON" />
+			</intent-filter>
+		</activity>
+		<receiver android:name=".InitReceiver">						
+			<intent-filter>
+				<category android:name="android.intent.category.DEFAULT" />
+				<action android:name="android.intent.action.CAMERA_BUTTON" />
+			</intent-filter>
+		</receiver>
+	</application>
+</manifest>

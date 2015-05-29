@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" >
+	<LinearLayout android:id="@+id/linearLayout1"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+		<TextView android:id="@+id/emailTextView"
+			android:layout_width="wrap_content" android:text="email"
+			android:layout_height="wrap_content"></TextView>
+		<EditText android:id="@+id/emailEditText"
+			android:layout_height="wrap_content" android:text=""
+			android:layout_width="fill_parent"></EditText>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/linearLayout2"
+		android:layout_width="fill_parent" android:layout_height="wrap_content">
+		<Button android:text="Cadastrar" android:id="@+id/btCadastrarEmail"
+			android:layout_height="wrap_content" android:layout_width="fill_parent"></Button>
+	</LinearLayout>
+</LinearLayout>

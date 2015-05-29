@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="vertical" android:gravity="center"
+android:background="@drawable/papel">
+	<ImageButton android:id="@+principal/btVideo"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:src="@drawable/rolo_filme" android:layout_margin="20dp"> </ImageButton>
+	<ImageButton android:id="@+principal/btFoto"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:src="@drawable/camera_icon" android:layout_margin="20dp"></ImageButton>
+</LinearLayout>
